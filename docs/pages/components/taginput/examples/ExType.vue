@@ -42,6 +42,12 @@
                 close-type="is-danger">
             </b-taginput>
         </b-field>
+        <b-field label="Custom Type">
+            <b-taginput
+                v-model="tags"
+                :type="tag => tag === 'Auckland' ? 'is-danger' : 'is-success'">
+            </b-taginput>
+        </b-field>
     </section>
 </template>
 

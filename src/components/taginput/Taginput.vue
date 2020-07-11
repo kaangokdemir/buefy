@@ -9,7 +9,7 @@
                 <b-tag
                     v-for="(tag, index) in tags"
                     :key="getNormalizedTagText(tag) + index"
-                    :type="type"
+                    :type="tagType(tag)"
                     :close-type="closeType"
                     :size="size"
                     :rounded="rounded"
@@ -107,7 +107,9 @@ export default {
             type: Array,
             default: () => []
         },
-        type: String,
+        type: {
+            type: [Function, String]
+        },
         closeType: String,
         rounded: {
             type: Boolean,
@@ -293,7 +295,12 @@ export default {
 
             this.newTag = ''
         },
-
+        tagType(tag) {
+            if (typeof this.type === 'function') {
+                return this.type(tag)
+            }
+            return this.type
+        },
         getNormalizedTagText(tag) {
             if (typeof tag === 'object') {
                 return getValueByPath(tag, this.field)

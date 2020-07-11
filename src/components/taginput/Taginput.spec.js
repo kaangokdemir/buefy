@@ -33,4 +33,16 @@ describe('BTaginput', () => {
         const Tag = wrapper.find(BTag)
         expect(Tag.attributes('closetype')).toBe(closeType)
     })
+
+    it('should change type of BTag component with a callback prop', () => {
+        const value = ['Bulma', 'Vue', 'Buefy']
+        const type = (tag) => tag.startsWith('B') ? 'is-primary' : 'is-warning'
+        const wrapper = shallowMount(BTaginput, {
+            propsData: { value, type }
+        })
+        const tags = wrapper.findAll(BTag)
+        expect(tags.at(0).attributes().type).toBe('is-primary')
+        expect(tags.at(1).attributes().type).toBe('is-warning')
+        expect(tags.at(2).attributes().type).toBe('is-primary')
+    })
 })
