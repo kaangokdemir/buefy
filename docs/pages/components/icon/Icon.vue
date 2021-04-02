@@ -32,6 +32,20 @@
             <p>You can also use object syntax for <code>type</code> props just like Vuejs <code>class</code>.</p>
         </Example>
 
+        <Example :component="ExIconText" :code="ExIconTextCode" title="Icon Text" vertical>
+            <div class="tags has-addons">
+                <span class="tag is-success">New!</span>
+                <span class="tag is-info">0.9.5</span>
+            </div>
+            <p>You can combine Buefy's 
+                <code>b-icon</code> 
+                with Bulma's 
+                <a href="https://bulma.io/documentation/elements/icon/#icon-text" target="_blank" >
+                    <code>icon-text</code>
+                </a> wrapper.
+            </p>
+        </Example>
+
         <Example :component="ExCustom" :code="ExCustomCode" title="Custom Icon Pack" vertical>
             <div class="tags has-addons">
                 <span class="tag is-success">Since</span>
@@ -57,6 +71,9 @@
 
     import ExObjectSyntax from './examples/ExObjectSyntax'
     import ExObjectSyntaxCode from '!!raw-loader!./examples/ExObjectSyntax'
+    
+    import ExIconText from './examples/ExIconText'
+    import ExIconTextCode from '!!raw-loader!./examples/ExIconText'
 
     import ExCustom from './examples/ExCustom'
     import ExCustomCode from '!!raw-loader!./examples/ExCustom'
@@ -69,9 +86,11 @@
                 ExMdi,
                 ExFa,
                 ExObjectSyntax,
+                ExIconText,
                 ExMdiCode,
                 ExFaCode,
                 ExObjectSyntaxCode,
+                ExIconTextCode,
                 ExCustom,
                 ExCustomCode,
                 usage: `
